@@ -74,7 +74,7 @@ public abstract class RecyclerAdapter<Data> extends RecyclerView.Adapter<Recycle
 
         holder.unbinder = ButterKnife.bind(holder, root);
         holder.callback = this;
-        return null;
+        return holder;
     }
 
     protected abstract ViewHolder<Data> onCreateViewHolder(View root, int viewType);
@@ -129,8 +129,9 @@ public abstract class RecyclerAdapter<Data> extends RecyclerView.Adapter<Recycle
      */
     public void replace(Collection<Data> dataList) {
         mDataList.clear();
-        if (dataList == null || dataList.size() == 0)
+        if (dataList == null || dataList.size() == 0) {
             return;
+        }
         mDataList.addAll(dataList);
     }
 
@@ -140,6 +141,16 @@ public abstract class RecyclerAdapter<Data> extends RecyclerView.Adapter<Recycle
     public void clear() {
         mDataList.clear();
         notifyDataSetChanged();
+    }
+
+    @Override
+    public void update(Data data, ViewHolder<Data> holder) {
+        int pos = holder.getAdapterPosition();
+        if (pos >= 0) {
+            mDataList.remove(pos);
+            mDataList.add(pos, data);
+            notifyItemChanged(pos);
+        }
     }
 
     @Override
@@ -173,8 +184,18 @@ public abstract class RecyclerAdapter<Data> extends RecyclerView.Adapter<Recycle
      * 自定义监听器
      */
     public interface AdapterListener<Data> {
+        /**
+         * 子Item点击事件
+         * @param holder ViewHolder
+         * @param data  Data
+         */
         void onItemClick(RecyclerAdapter.ViewHolder holder, Data data);
 
+        /**
+         * 子Item长按事件
+         * @param holder ViewHolder
+         * @param data  Data
+         */
         void onItemLongClick(RecyclerAdapter.ViewHolder holder, Data data);
     }
 
@@ -213,6 +234,23 @@ public abstract class RecyclerAdapter<Data> extends RecyclerView.Adapter<Recycle
             if (this.callback != null) {
                 this.callback.update(data, this);
             }
+        }
+    }
+
+    /**
+     * 对点击事件回调做一次实现
+     * @param <Data>
+     */
+    public static abstract class AdapterListenerImpl<Data> implements AdapterListener<Data> {
+
+        @Override
+        public void onItemClick(ViewHolder holder, Data data) {
+
+        }
+
+        @Override
+        public void onItemLongClick(ViewHolder holder, Data data) {
+
         }
     }
 }

@@ -69,7 +69,6 @@ public class NavHelper<T> {
             return true;
         }
 
-
         return false;
     }
 

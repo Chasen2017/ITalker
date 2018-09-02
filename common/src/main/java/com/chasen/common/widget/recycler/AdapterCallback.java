@@ -1,6 +1,5 @@
 package com.chasen.common.widget.recycler;
 
-import android.support.v7.widget.RecyclerView;
 
 /**
  * Created by chasen on 18-6-14.

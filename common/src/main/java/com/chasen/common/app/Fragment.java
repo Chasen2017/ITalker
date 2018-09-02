@@ -69,7 +69,7 @@ public abstract class Fragment extends android.support.v4.app.Fragment{
      * 初始化控件
      */
     protected void initWidget(View root){
-        mRootUnBinder = ButterKnife.bind(root);
+        mRootUnBinder = ButterKnife.bind(this, root);
     }
 
     /**
@@ -88,9 +88,4 @@ public abstract class Fragment extends android.support.v4.app.Fragment{
         return false;
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        mRootUnBinder.unbind();
-    }
 }
