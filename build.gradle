@@ -19,6 +19,8 @@ allprojects {
     repositories {
         google()
         jcenter()
+        mavenCentral()
+        maven { url "https://www.jitpack.io"}
     }
 }
 
@@ -44,7 +46,7 @@ ext{
     easyPMVersion = "0.3.0"
     geniusVersion = '2.0.0'
     circleimageviewVersion = '2.1.0'
-    ucropVersion = '2.2.1'
+    ucropVersion = '2.2.0'
     ossVersion = '2.3.0'
     gsonVersion = '2.8.0'
     getuiVersion = '2.9.3.0'

@@ -33,7 +33,7 @@ import java.util.List;
  * @data: on 18-8-23
  */
 
-public class GalleyView extends RecyclerView {
+public class GalleryView extends RecyclerView {
 
     /**
      * Loader ID
@@ -52,17 +52,17 @@ public class GalleyView extends RecyclerView {
     private List<Image> mSelectedImages = new LinkedList<>();
     private SelectedChangeListener mListener;
 
-    public GalleyView(Context context) {
+    public GalleryView(Context context) {
         super(context);
         init();
     }
 
-    public GalleyView(Context context, @Nullable AttributeSet attrs) {
+    public GalleryView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public GalleyView(Context context, @Nullable AttributeSet attrs, int defStyle) {
+    public GalleryView(Context context, @Nullable AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init();
     }
@@ -272,7 +272,7 @@ public class GalleyView extends RecyclerView {
 
         @Override
         protected ViewHolder<Image> onCreateViewHolder(View root, int viewType) {
-            return new GalleyView.ViewHolder(root);
+            return new GalleryView.ViewHolder(root);
         }
     }
 

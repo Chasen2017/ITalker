@@ -11,7 +11,7 @@
         android:textColor="@color/black"
         android:gravity="center"
         android:text="active" />-->
-    <com.chasen.common.widget.GalleyView
+    <com.chasen.common.widget.GalleryView
         android:id="@+id/galley"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

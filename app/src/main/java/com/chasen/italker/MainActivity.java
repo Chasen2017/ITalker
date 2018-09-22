@@ -15,6 +15,7 @@ import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.ViewTarget;
 import com.chasen.common.app.Activity;
 import com.chasen.common.widget.PortraitView;
+import com.chasen.italker.actvities.AccountActivity;
 import com.chasen.italker.frags.main.ActiveFragment;
 import com.chasen.italker.frags.main.ContactFragment;
 import com.chasen.italker.frags.main.GroupFragment;
@@ -87,7 +88,7 @@ public class MainActivity extends Activity
 
     @OnClick(R.id.btn_action)
     void onActionClick() {
-
+        AccountActivity.show(this);
     }
 
     /**

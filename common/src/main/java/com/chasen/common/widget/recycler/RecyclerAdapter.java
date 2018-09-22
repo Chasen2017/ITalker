@@ -133,6 +133,7 @@ public abstract class RecyclerAdapter<Data> extends RecyclerView.Adapter<Recycle
             return;
         }
         mDataList.addAll(dataList);
+        notifyDataSetChanged();
     }
 
     /**
